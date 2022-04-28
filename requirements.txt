@@ -1,0 +1,4 @@
+aiogram==2.20
+aiohttp==3.8.1
+aiomysql==0.1.0
+PyMySQL==1.0.2
