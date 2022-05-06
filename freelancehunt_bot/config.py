@@ -12,7 +12,7 @@ cwd = Path().cwd()
 
 
 
-TOKEN = '5228586814:AAH8_CqqJcue71jYGSKNksmGPyoFkDOOU7s'
+TOKEN = '5314432212:AAF51gh1IbmXolssng1cfijhtcDI9dzMezY'
 
 REDIS = {
     'db': 1,
