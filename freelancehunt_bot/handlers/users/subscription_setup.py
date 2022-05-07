@@ -1,11 +1,12 @@
 import aiogram.types
-from aiogram.types import Message
+from aiogram.types import Message, Update
 from freelancehunt_bot.states.user import User
 from freelancehunt_bot.misc import dp, bot
 from freelancehunt_bot import db
 from freelancehunt_bot import keyboards
 from aiogram.dispatcher import FSMContext
 import re
+
 
 @dp.message_handler(text='Настройка подписок', state=User.main)
 async def subscriptions_settings(message: Message, state: FSMContext):
