@@ -16,7 +16,7 @@ REDIS = {
     'prefix': cwd.name
 }
 
-WEBHOOK_HOST = 'https://1a79-134-209-26-4.eu.ngrok.io'
+WEBHOOK_HOST = 'https://7177-176-98-92-37.eu.ngrok.io'
 WEBHOOK_PATH = 'path/to/api'
 WEBHOOK_URL = f"{WEBHOOK_HOST}/{WEBHOOK_PATH}/"
 

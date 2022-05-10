@@ -24,9 +24,9 @@ def add_project_to_data_base(project_data: dict) -> int:
 def add_skills(skills_list: list) -> None:
     con, cur = sync_create_con()
     cur.executemany('insert into dev_freelancehunt_bot.skill_list (skill_id, skill_name) '
-                          'values (%s, %s) ON DUPLICATE KEY UPDATE skill_name = VALUES (skill_name) ',
-                          [(skill_data['id'], skill_data['name'])
-                           for skill_data in skills_list])
+                    'values (%s, %s) ON DUPLICATE KEY UPDATE skill_name = VALUES (skill_name) ',
+                    [(skill_data['id'], skill_data['name'])
+                     for skill_data in skills_list])
     con.commit()
     con.close()
 

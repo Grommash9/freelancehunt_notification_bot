@@ -1,5 +1,5 @@
 import json
-
+import config
 import requests
 from freelancehunt_parser import data_base_api, config
 from freelancehunt_parser.data_base_api import add_skills, new_project
@@ -37,7 +37,9 @@ def get_projects():
         return 0
     for projects in data.json()['data']:
         if new_project(projects['id']):
-            data = data_base_api.add_project_to_data_base(project_data=projects)
-            #TODO пост нового проекта на вебхук бота
-            print(data)
+            new_project_id = data_base_api.add_project_to_data_base(project_data=projects)
+            requests.post(f"{config.WEBHOOK_URL}?id={new_project_id}")
     return 1
+
+
+get_projects()

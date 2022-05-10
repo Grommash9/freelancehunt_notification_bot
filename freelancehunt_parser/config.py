@@ -6,3 +6,7 @@ MYSQL = {
     'password': 'root',
     'db': '',
 }
+
+WEBHOOK_HOST = 'https://7177-176-98-92-37.eu.ngrok.io'
+WEBHOOK_PATH = 'new_project'
+WEBHOOK_URL = f"{WEBHOOK_HOST}/{WEBHOOK_PATH}/"
