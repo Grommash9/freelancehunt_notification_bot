@@ -1,3 +1,3 @@
-from . import freelancehunt_parsing
-from . import config
-from . import data_base_api
+from freelancehunt_parser import freelancehunt_parsing
+from freelancehunt_parser import config
+from freelancehunt_parser import data_base_api

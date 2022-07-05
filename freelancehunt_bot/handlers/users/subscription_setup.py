@@ -13,7 +13,7 @@ async def subscriptions_settings(message: Message, state: FSMContext):
     user_skills = await db.user_subscriptions.get_user_skills(message.from_user.id)
     await state.set_state(User.NewSkills.skill_name)
     await bot.send_message(chat_id=message.from_user.id,
-                           text='asd',
+                           text='Пожалуйста выберите подписки',
                            reply_markup=keyboards.users.subscription_menu(user_skills))
 
 

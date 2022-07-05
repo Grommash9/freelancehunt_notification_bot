@@ -14,7 +14,7 @@ async def add_new_user(user_id: int) -> None:
         skill_list = await cur.fetchall()
         await cur.executemany(
             'insert into dev_freelancehunt_bot.users_skills (user_id, skill_id, is_interested) values (%s, %s, %s) ',
-            [(user_id, skill['skill_id'], 0) for skill in skill_list])
+            [(user_id, skill, 0) for skill in skill_list])
 
         await con.commit()
     finally:

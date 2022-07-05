@@ -1,0 +1,15 @@
+[Unit]
+Description=freelancehunt_parser
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/freelancehunt_notification_bot/
+ExecStart=/home/freelancehunt_notification_bot/env/bin/python3 -m freelancehunt_parser
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

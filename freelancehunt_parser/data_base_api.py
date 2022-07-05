@@ -43,3 +43,11 @@ def new_project(project_website_id: int) -> bool:
         return True
     else:
         return False
+
+def get_skills():
+    con, cur = sync_create_con()
+    cur.execute('select DISTINCT(skill_id) from skill_list ')
+    skill_list = cur.fetchall()
+    con.close()
+    return [skill_list[0] for skill_list in skill_list]
+
