@@ -1,10 +1,11 @@
 from pathlib import Path
 
+
 MYSQL = {
     'host': '127.0.0.1',
     'user': 'root',
     'password': 'root',
-    'db': '',
+    'db': 'root',
 }
 
 cwd = Path().cwd()

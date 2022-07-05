@@ -1,15 +1,13 @@
-from aiogram import executor
 from aiogram.dispatcher.webhook import get_new_configured_app
-from aiogram.utils.executor import start_webhook
 from aiohttp import web
 
-from freelancehunt_bot.misc import dp, bot, routes
-from freelancehunt_bot.db import check_and_create_db
 from freelancehunt_bot import config
+from freelancehunt_bot.misc import dp, bot, routes
 
 
 async def on_startup(_dispatcher):
     await bot.set_webhook(config.WEBHOOK_URL)
+    # await bot.set_webhook(config.WEBHOOK_URL, certificate=open('/etc/nginx/ssl/nginx.crt', 'r'))
     print(await bot.get_webhook_info())
     print(await bot.get_me())
 
@@ -27,7 +25,6 @@ def setup_bot(app: web.Application):
 
 
 if __name__ == '__main__':
-    # check_and_create_db.create_data_base()
     #executor.start_polling(dp, skip_updates=True)
     app = get_new_configured_app(dispatcher=dp, path=f'/{config.WEBHOOK_PATH}/')
     app.add_routes(routes)
