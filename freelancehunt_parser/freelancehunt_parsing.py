@@ -20,6 +20,7 @@ def get_projects():
     json_data = json.loads(data.decode('utf-8'))
     for projects in json_data['data']:
         if new_project(projects['id']):
+
             new_project_id = data_base_api.add_project_to_data_base(project_data=projects)
             requests.post(f"{config.WEBHOOK_URL}?id={new_project_id}", verify=False)
     return 1

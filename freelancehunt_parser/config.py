@@ -1,4 +1,4 @@
-api_key = ''
+api_key = 'a9f4eed877fa3733891101f2b32e9b9ac127f9aa'
 
 MYSQL = {
     'host': '127.0.0.1',
