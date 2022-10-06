@@ -9,6 +9,7 @@ headers = {
     'Authorization': f'Bearer {config.api_key}',
 }
 
+
 def get_projects():
     skill_ids_list = data_base_api.get_skills()
     conn = http.client.HTTPSConnection("api.freelancehunt.com")
