@@ -30,7 +30,7 @@ class UpworkParser:
                 self.send_to_users(project_id)
 
     def send_to_users(self, new_project_id):
-        requests.post(f"{config.WEBHOOK_URL}?id={new_project_id}", verify=False)
+        requests.post(f"{config.WEBHOOK_HOST}/new_project/?id={new_project_id}", verify=False)
 
 
 
