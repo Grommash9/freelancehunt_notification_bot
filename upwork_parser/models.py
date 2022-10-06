@@ -9,7 +9,7 @@ from upwork_parser.db.data_base_api import UpworkProject
 
 
 class UpworkParser:
-    target_url = 'https://www.upwork.com/ab/feed/topics/rss?securityToken=b3f06767f8788a59202c4afbc7ac3ccc468bef9d5693a368e1ab0125f74673812af43d66453ada4390010b7315950996a9a57e2d2ab74b7504e5e99cc0906dfd&userUid=1506609718993432576&orgUid=1561868530043547649&topic=most-recent'
+    target_url = 'https://www.upwork.com/ab/feed/jobs/rss?sort=recency&ontology_skill_uid=996364628025274386&verified_payment_only=1&paging=0%3B10&api_params=1&q=&securityToken=b3f06767f8788a59202c4afbc7ac3ccc468bef9d5693a368e1ab0125f74673812af43d66453ada4390010b7315950996a9a57e2d2ab74b7504e5e99cc0906dfd&userUid=1506609718993432576&orgUid=1561868530043547649'
     CLEANR = re.compile('<.*?>')
 
     def cleanhtml(self, raw_html):
