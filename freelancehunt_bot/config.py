@@ -1,27 +1,33 @@
+import json
 from pathlib import Path
 
+from dotenv import load_dotenv
 
-MYSQL = {
-    'host': '127.0.0.1',
-    'user': 'root',
-    'password': 'root',
-    'db': 'dev_freelancehunt_bot',
-}
+load_dotenv()
+import os
 
 cwd = Path().cwd()
 
-TOKEN = '56c'
-
-REDIS = {
-    'db': 1,
-    'prefix': cwd.name
-}
-
-WEBHOOK_HOST = 'https://d31b-176-98-89-199.ngrok.io'
-WEBHOOK_PATH = 'freelancehunt_notification_bot'
+ADMINS_ID = json.loads(os.getenv('ADMINS_ID'))
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+WEBHOOK_HOST = os.getenv('WEBHOOK_HOST')
+WEBHOOK_PATH = f'{cwd.name}'
 WEBHOOK_URL = f"{WEBHOOK_HOST}/{WEBHOOK_PATH}/"
 
 BOT_SERVER = {
-    'host': 'localhost',
-    'port': 80
+    'host': os.getenv('BOT_SERVER_HOST'),
+    'port': os.getenv('BOT_SERVER_PORT')
+}
+
+REDIS = {
+    'db': 2,
+    'prefix': cwd.name
+}
+# sad
+MYSQL = {
+    'host': os.getenv('MYSQL_HOST'),
+    'user': os.getenv('MYSQL_USER'),
+    'password': os.getenv('MYSQL_PASSWORD'),
+    'db': os.getenv('MYSQL_DB_NAME'),
+    # 'unix_socket': '/var/run/mysqld/mysqld.sock'
 }
