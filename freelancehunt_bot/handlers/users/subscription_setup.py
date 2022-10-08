@@ -27,7 +27,7 @@ async def subscriptions_switcher(message: Message, state: FSMContext):
 
 
 @dp.message_handler(content_types=aiogram.types.ContentType.TEXT, state=User.NewSkills.skill_name)
-async def subscriptions_switcher(message: Message, state: FSMContext):
+async def subscriptions_switcher(message: Message):
     skill_data = await db.user_subscriptions.get_skill_id(' '.join(re.findall('([^✔ ]{1,50})', message.text)))
     if skill_data is None:
         await bot.send_message(text='Введенный вами скилл не был найден в бд, попробуйте снова.\n'

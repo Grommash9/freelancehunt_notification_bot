@@ -5,6 +5,7 @@ def main_menu() -> ReplyKeyboardMarkup:
     m = ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
     m.add(KeyboardButton('Настройка подписок'))
     m.insert(KeyboardButton('Исходный код'))
+    m.insert(KeyboardButton('Статистика'))
     return m
 
 

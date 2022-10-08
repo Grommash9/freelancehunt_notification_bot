@@ -18,6 +18,6 @@ async def get_handler(request):
                                                                           f"{project_data['project_name']}\n\n"
                                                                           f"{project_data['project_description']}\n\n"
                                                                           f"{project_data['url']}")
-                except Exception as e:
+                except Exception:
                     pass
 
