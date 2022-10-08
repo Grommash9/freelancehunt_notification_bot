@@ -11,7 +11,7 @@ class UpworkProject:
     time_added: int
 
 
-def add_project_to_data_base(project_data: UpworkProject) -> int:
+def add_project_to_data_base(project_data: UpworkProject, skill_id) -> int:
     con, cur = sync_create_con()
     cur.execute('insert into dev_freelancehunt_bot.project_data (project_name, project_description, url, time_added) '
                 'values (%s, %s, %s, %s) ',
@@ -22,7 +22,7 @@ def add_project_to_data_base(project_data: UpworkProject) -> int:
 
     new_project_id = cur.lastrowid
     cur.execute('insert into dev_freelancehunt_bot.project_skills (project_id, skill_id) '
-                    'values (%s, %s) ', (new_project_id, 185))
+                    'values (%s, %s) ', (new_project_id, skill_id))
     con.commit()
     con.close()
     return new_project_id
