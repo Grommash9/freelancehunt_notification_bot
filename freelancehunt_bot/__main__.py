@@ -4,8 +4,8 @@ from aiogram.dispatcher.webhook import get_new_configured_app
 from aiogram.types import AllowedUpdates
 from aiohttp import web
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
-from bot_app import config
-from bot_app.misc import dp, bot, routes, scheduler, i18n
+from freelancehunt_bot import config
+from freelancehunt_bot.misc import dp, bot, routes
 
 
 async def on_startup(_dispatcher):
@@ -33,15 +33,9 @@ def setup_bot(app: web.Application):
 
 
 if __name__ == '__main__':
-    scheduler.start()
     logging.basicConfig(level=logging.INFO)
     dp.middleware.setup(LoggingMiddleware())
-    dp.middleware.setup(i18n)
-
-    if int(config.POLLING):
-        executor.start_polling(dp, skip_updates=True)
-    else:
-        app = get_new_configured_app(dispatcher=dp, path=f'/{config.WEBHOOK_PATH}/')
-        app.add_routes(routes)
-        setup_bot(app)
-        web.run_app(app, **config.BOT_SERVER)
+    app = get_new_configured_app(dispatcher=dp, path=f'/{config.WEBHOOK_PATH}/')
+    app.add_routes(routes)
+    setup_bot(app)
+    web.run_app(app, **config.BOT_SERVER)

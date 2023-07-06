@@ -1,5 +1,4 @@
 from pymysql import IntegrityError
-
 from .base import create_con, create_dict_con
 
 
