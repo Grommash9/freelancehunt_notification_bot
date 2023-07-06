@@ -12,7 +12,6 @@ async def process_start(message: Message, state: FSMContext):
     await state.finish()
     await state.set_state(User.main)
     await db.user.add_new_user(message.from_user.id)
-
     await bot.send_message(chat_id=message.chat.id,
                            text='Привет, я бот для оповещения о новых заказах на фрилансе.\n'
                                 'Выбери специалости на которые ты хотел бы подписаться!',
