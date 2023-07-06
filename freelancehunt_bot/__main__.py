@@ -6,8 +6,8 @@ from freelancehunt_bot.misc import dp, bot, routes
 
 
 async def on_startup(_dispatcher):
-    # await bot.set_webhook(config.WEBHOOK_URL)
-    await bot.set_webhook(config.WEBHOOK_URL, certificate=open('/etc/nginx/ssl/nginx.crt', 'r'))
+    await bot.set_webhook(config.WEBHOOK_URL)
+    # await bot.set_webhook(config.WEBHOOK_URL, certificate=open('/etc/nginx/ssl/nginx.crt', 'r'))
     print(await bot.get_webhook_info())
     print(await bot.get_me())
 
